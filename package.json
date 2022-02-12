@@ -1,0 +1,25 @@
+{
+  "name": "tik-tok-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Garoika/tik-tok-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Garoika/tik-tok-site/issues"
+  },
+  "homepage": "https://github.com/Garoika/tik-tok-site#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
