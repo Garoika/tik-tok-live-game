@@ -30,6 +30,15 @@ function App() {
 
   return (
     <div className="container">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
+      <br/>
+      <br/>
+      <br/>
+
       <div class="text">Road to 1000000000 clicks</div>
       <div class="text">Дорога до 1000000000 кликов</div>
       <div class="count">{test}</div>
@@ -98,6 +107,7 @@ function App() {
         <button className="button_plus-minus--btn" onClick={() => setCount(count + 1)}>+</button>
         <button className="button_plus-minus--btn" onClick={() => setCount(count - 1)}>-</button>
       </div>
+      <div className="text">Подписка за подарок!</div>
     </div>
   );
 }
