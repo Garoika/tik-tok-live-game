@@ -16,6 +16,13 @@ import photo13 from './assets/13.png';
 function App() {
   const [count, setCount] = useState(0);
 
+
+  let test = count
+
+  if(test >= 1000000000) {
+    test = 'You win!'
+  }
+
   function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
@@ -25,7 +32,7 @@ function App() {
     <div className="container">
       <div class="text">Road to 1000000000 clicks</div>
       <div class="text">Дорога до 1000000000 кликов</div>
-      <div class="count">{count}</div>
+      <div class="count">{test}</div>
       <div className="button__content">
         <button className='button__content-btn' onClick={() => setCount(count + 100)}>
           <img class="button__contnet-img" src={photo}/>
