@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+
 import photo from './assets/1.png';
 import photo2 from './assets/2.png';
 import photo3 from './assets/3.png';
@@ -13,11 +14,17 @@ import photo11 from './assets/11.png';
 import photo12 from './assets/12.png';
 import photo13 from './assets/13.png';
 
-function App() {
-  const [count, setCount] = useState(0);
+import axios from 'axios';
 
+function App() {
+  let [count, setCount] = useState(0);
 
   let test = count
+
+  const prices = {
+    "Rose": 100,
+    "Finger Heart": 1000
+  }
 
   if(test >= 1000000000) {
     test = 'You win!'
@@ -28,78 +35,84 @@ function App() {
     return Math.round(rand);
   }
 
+
+  useEffect(() => {
+        setInterval(async() => {
+          let fetch = await axios.get('http://localhost:5000/gifts')
+          for(var i = 0; i < fetch.data.length; i++) {
+            console.log(fetch.data[i].extendedGiftInfo.name)
+            if(fetch.data[i].extendedGiftInfo.name != ('Rose' || 'Finger Heart')) return;
+            setCount((prevCount) => prevCount + prices[`${fetch.data[i].extendedGiftInfo.name}`]);
+          }
+        }, 1000);
+  }, []);
+
+
   return (
     <div className="container">
       <br/>
       <br/>
-      <br/>
-      <br/>
-      
-      <br/>
-      <br/>
-      <br/>
-
-      <div class="text">Road to 1000000000 clicks</div>
-      <div class="text">Дорога до 1000000000 кликов</div>
-      <div class="count">{test}</div>
+      <div className="text">Road to 1000000000 clicks</div>
+      <div className="text">Дорога до 1000000000 кликов</div>
+      <div className="count">{test}</div>
       <div className="button__content">
         <button className='button__content-btn' onClick={() => setCount(count + 100)}>
-          <img class="button__contnet-img" src={photo}/>
-          <div class="button__content-text">+ 100</div>
+          <img className="button__contnet-img" src={photo}/>
+          <div className="button__content-text">+ 100</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count + 1000)}>
-          <img class="button__contnet-img" src={photo3}/>
-          <div class="button__content-text">+ 1000</div>
+          <img className="button__contnet-img" src={photo3}/>
+          <div className="button__content-text">+ 1000</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count + 10000)}>
-          <img class="button__contnet-img" src={photo5}/>
-          <div class="button__content-text">+ 10000</div>
+          <img className="button__contnet-img" src={photo5}/>
+          <div className="button__content-text">+ 10000</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count + 100000)}>
-          <img class="button__contnet-img" src={photo7}/>
-          <div class="button__content-text">+ 100000</div>
+          <img className="button__contnet-img" src={photo7}/>
+          <div className="button__content-text">+ 100000</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count + 1000000)}>
-          <img class="button__contnet-img" src={photo9}/>
-          <div class="button__content-text">+ 1000000</div>
+          <img className="button__contnet-img" src={photo9}/>
+          <div className="button__content-text">+ 1000000</div>
         </button>
       </div> 
       <div className="button__content">
         <button className='button__content-btn' onClick={() => setCount(count - 100)}>
-        <img class="button__contnet-img" src={photo2}/>
-          <div class="button__content-text">- 100</div>
+        <img className="button__contnet-img" src={photo2}/>
+          <div className="button__content-text">- 100</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count - 1000)}>
-          <img class="button__contnet-img" src={photo4}/>
-          <div class="button__content-text">- 1000</div>
+          <img className="button__contnet-img" src={photo4}/>
+          <div className="button__content-text">- 1000</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count - 10000)}>
-          <img class="button__contnet-img" src={photo6}/>
-          <div class="button__content-text">- 10000</div>
+          <img className="button__contnet-img" src={photo6}/>
+          <div className="button__content-text">- 10000</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count - 100000)}>
-          <img class="button__contnet-img" src={photo8}/>
-          <div class="button__content-text">- 100000</div>
+          <img className="button__contnet-img" src={photo8}/>
+          <div className="button__content-text">- 100000</div>
         </button>
         <button className='button__content-btn' onClick={() => setCount(count - 1000000)}>
-          <img class="button__contnet-img" src={photo13}/>
-          <div class="button__content-text">- 1000000</div>
+          <img className="button__contnet-img" src={photo13}/>
+          <div className="button__content-text">- 1000000</div>
         </button>
       </div> 
 
 
       <div className='button__random'>
         <button className='button__random-btn' onClick={() => setCount(count + randomInteger(1, 10000000))}>
-          <img class="button__contnet-img" src={photo11}/>
-          <div class="button__content-text">+ СЛУЧАЙНОЕ ЧИСЛО</div>
+          <img className="button__contnet-img" src={photo11}/>
+          <div className="button__content-text">+ СЛУЧАЙНОЕ ЧИСЛО</div>
         </button>
         <button className='button__random-btn' onClick={() => setCount(count - randomInteger(1, 10000000))}>
-          <img class="button__contnet-img" src={photo10}/>
-          <div class="button__content-text">- СЛУЧАЙНОЕ ЧИСЛО</div>
+          <img className="button__contnet-img" src={photo10}/>
+          <div className="button__content-text">- СЛУЧАЙНОЕ ЧИСЛО</div>
         </button>
         <button className='button__random-btn' onClick={() => setCount(0)}>
-          <img class="button__contnet-img" src={photo12}/>
-          <div class="button__content-text">ОБНУЛИТЬ СЧЁТЧИК</div>
+          <img className="button__contnet-img" src={photo12}/>
+          <div className="button__content-text">ОБНУЛИТЬ СЧЁТЧИК</div>
         </button>
       </div>
 

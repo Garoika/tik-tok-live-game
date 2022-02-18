@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Garoika/tik-tok-site#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "tiktok-livestream-chat-connector": "^0.9.8"
   }
 }
