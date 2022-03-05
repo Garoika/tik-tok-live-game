@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 export const Words = (props) => {
-    let [EncryptWord, setEncryptWord] = useState('')
+    let [EncryptWord, setEncryptWord] = useState([])
     let [DecryptWord, setDecryptWord] = useState('')
     let [status, setStatus] = useState(false)
     let [winner, setWinner] = useState({})
@@ -41,10 +41,20 @@ export const Words = (props) => {
     }
     getLiveChat()
 
+    let EncryptMassive = EncryptWord;
+
     return(
         <div>
-            <center><h1>Угадай слово</h1>
-            {status ? <div>{DecryptWord}<div>{winner.nickname}</div><img src={winner.profilePictureUrl}/></div> : <div>{EncryptWord}</div>}</center>
+            <h1>Угадай слово</h1>
+            {status ? 
+                <div>
+                    <div className="word text">{DecryptWord}</div>
+                    {winner.nickname}
+                    <img src={winner.profilePictureUrl}/>
+                </div> 
+            : <div className="item">{EncryptWord.map((w, i) => (
+                <div className="word text" key={i}>{w}</div>
+            ))}</div>}
         </div>
     )
 }

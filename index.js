@@ -4,7 +4,7 @@ const word = require('russian-words');
 
 const { WebcastPushConnection } = require('tiktok-livestream-chat-connector');
 
-let tiktokUsername = "veydi_rush";
+let tiktokUsername = "garik.ugarik";
 
 let tiktokChatConnection = new WebcastPushConnection(tiktokUsername, {
     enableExtendedGiftInfo: true
