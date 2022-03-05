@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #863273;
+  color: #fff;
 
   margin: 30px 0;
 }
@@ -106,12 +107,17 @@ button {
 }
 
 .word {
- border-radius: 30px; 
- width: 50px;	height: 70px;
- outline: 2px solid #000;
- margin-bottom: 10px;
+  display: flex;
 }
 
-.item {
+.word__text {
+  font-size: 30px;
+
   display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  padding: 5px 10px;
+  margin-left: 2px;
+  border: 2px solid #F0EAD6;
 }

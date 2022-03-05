@@ -52,8 +52,8 @@ export const Words = (props) => {
                     {winner.nickname}
                     <img src={winner.profilePictureUrl}/>
                 </div> 
-            : <div className="item">{EncryptWord.map((w, i) => (
-                <div className="word text" key={i}>{w}</div>
+            : <div className="word">{EncryptWord.map((w, i) => (
+                <div className="word__text" key={i}>{w}</div>
             ))}</div>}
         </div>
     )

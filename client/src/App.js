@@ -6,7 +6,11 @@ function App() {
   const routes = useRoutes(false)
 
   return (
-      <div>{routes}</div>
+    <div>
+      <div className='container'>
+        <div>{routes}</div>
+      </div>
+    </div>
   );
 }
 
