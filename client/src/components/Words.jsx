@@ -17,7 +17,7 @@ export const Words = (props) => {
             text = FWord.data
             let EncryptedСharacters = Math.ceil((FWord.data.length / 2) - 1)
             for(let i = 0; i < EncryptedСharacters; i++) {
-                WordMassive[randomInteger(0, WordMassive.length)] = '*'
+                WordMassive[randomInteger(0, WordMassive.length)] = <div className='word__star'>*</div>
             }
             setEncryptWord(WordMassive)
         }
@@ -45,12 +45,18 @@ export const Words = (props) => {
 
     return(
         <div>
-            <h1>Угадай слово</h1>
+            <h1 className="word__title">Угадай слово</h1>
             {status ? 
-                <div>
-                    <div className="word text">{DecryptWord}</div>
-                    {winner.nickname}
-                    <img src={winner.profilePictureUrl}/>
+                <div className='win'>
+                    <div class="win__title">Победитель</div>
+                    <div className="win__user">
+                        <img class="win__user-photo" src={winner.profilePictureUrl}/>
+                        <div class="win__user-text">{winner.nickname}</div>
+                    </div>
+                    <div className="win__item">
+                        <div className="win__text">Слово:</div>
+                        <div className="win__text">{DecryptWord}</div>
+                    </div>
                 </div> 
             : <div className="word">{EncryptWord.map((w, i) => (
                 <div className="word__text" key={i}>{w}</div>

@@ -108,16 +108,66 @@ button {
 
 .word {
   display: flex;
+  justify-content: center;
+}
+
+.word__title {
+  color: #000;
+  background: #F7F7F7;
+  
+  border-bottom: 2px solid #E71C4F;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .word__text {
-  font-size: 30px;
+  font-size: 50px;
 
   display: flex;
   align-items: center;
   justify-content: center;
  
-  padding: 5px 10px;
-  margin-left: 2px;
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+  margin-left: 4px;
   border: 2px solid #F0EAD6;
+}
+
+.word__star {
+  position: relative;
+
+  top: 10px
+}
+
+.win__title {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.win__item {
+  display: flex;
+}
+
+.win__text {
+  font-size: 20px;
+
+  margin-right: 10px;
+}
+
+.win__user {
+  display: flex;
+  align-items: center;
+}
+
+.win__user-photo {
+  border-radius: 50%;
+  width: 70px;
+}
+
+.win__user-text {
+  font-weight: 700;
+
+  margin-left: 10px;
 }
